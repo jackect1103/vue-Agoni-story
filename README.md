@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # vue-Agoni-story
 基于vue的小说网站
 =======
@@ -31,4 +30,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
->>>>>>> 基于vue做的毕业设计--Agoni小说网站
+
