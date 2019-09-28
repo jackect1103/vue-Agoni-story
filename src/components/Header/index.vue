@@ -29,7 +29,12 @@ export default {
   },
   mounted() {
     var isMeta = this.$route.meta;
-    if (isMeta == "comment" || isMeta == "selectDetail"|| isMeta == "search") {
+    if (
+      isMeta == "comment" ||
+      isMeta == "selectDetail" ||
+      isMeta == "search" ||
+      isMeta == "category"
+    ) {
       this.isComment = false;
     } else {
       this.isComment = true;
@@ -70,7 +75,7 @@ export default {
   margin-top: -13px;
   font-size: 26px;
 }
-#header li:nth-child(4){
+#header li:nth-child(4) {
   position: absolute;
   right: 12%;
   top: 25px;

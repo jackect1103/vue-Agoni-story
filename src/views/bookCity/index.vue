@@ -34,6 +34,8 @@
     <!-- 内容区 end-->
     <!-- 底部导航 -->
     <TabBar />
+    <!-- 查看更多 -->
+    <router-view></router-view>
   </div>
 </template>
 

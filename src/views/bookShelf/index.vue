@@ -3,6 +3,7 @@
     <Header title="书架" />
     <shelfList/>
     <TabBar />
+    <router-view></router-view>
   </div>
 </template>
 

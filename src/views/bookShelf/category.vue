@@ -1,29 +1,30 @@
 <template>
-  <div id="commentContrainer" class="slide-enter-active"> 
-    <Header />
-    <div class="commentText">{{ id }}</div>
+  <div id="category" class="slide-enter-active">
+    <Header :title='categoryname'/>
+    <StoryList/>
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
+import StoryList from "@/components/storyList";
 export default {
-  name: "comment",
+  name: "category",
   components: {
-    Header
+    Header,
+    StoryList
   },
-  props: ["id"],
+  props: ["categoryname"],
   mounted() {
     console.log(this.$route.params);
   }
 };
 </script>
-
-<style lang="css" scoped>
-#commentContrainer {
+<style lang='css' scoped>
+#category {
   position: absolute;
   left: 0;
-  top: 0;
+  /* top: 0; */
   z-index: 100;
   width: 100%;
   min-height: 100%;
@@ -40,5 +41,4 @@ export default {
     transform: translateX(0);
   }
 }
-
 </style>

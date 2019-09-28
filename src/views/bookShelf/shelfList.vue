@@ -4,11 +4,11 @@
     <div class="sex">
       <h2>选择性别</h2>
       <div class="sexBox">
-        <router-link tag="div" to="/bookList:boy">
+        <router-link tag="div" :to="'/bookshelf/category/'+categoryname[0]">
           <i class="iconfont icon-boy"></i>
           我是男生
         </router-link>
-        <router-link tag="div" to="/bookList:girl">
+        <router-link tag="div" :to="'/bookshelf/category/'+categoryname[1]">
           <i class="iconfont icon-huabanfuben"></i>
           我是女生
         </router-link>
@@ -18,101 +18,17 @@
     <div class="classification">
       <h2>选择类别</h2>
       <ul class="shelfList">
-        <router-link tag="li" to='/bookList:玄幻'>
+        <router-link tag="li" :to="'/bookshelf/category/'+item.category_id" v-for="(item,id) in storyCategory" :key='id'>
           <div class="shelfBox">
-            <div>玄幻</div>
+            <div>{{ item.title }}</div>
             <div>
               <img
-                src="http://imgsrc.baidu.com/baike/abpic/item/0dd7912397dda144f6905e65b8b7d0a20df4864f.jpg"
-                alt='玄幻'
+                :src="item.img"
+                :alt="item.title"
               />
             </div>
           </div>
-          <p>文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足</p>
-        </router-link>
-        <router-link tag="li" to='/bookList:都市'>
-          <div class="shelfBox">
-            <div>都市</div>
-            <div>
-              <img
-                src="http://imgsrc.baidu.com/baike/abpic/item/8b82b9014a90f603bf2f82853712b31bb151ed51.jpg"
-                alt="都市"
-              />
-            </div>
-          </div>
-          <p>文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足</p>
-        </router-link>
-        <router-link tag="li" to='/bookList:武侠'>
-          <div class="shelfBox">
-            <div>武侠</div>
-            <div>
-              <img
-                src="http://imgsrc.baidu.com/baike/abpic/item/0dd7912397dda144f6905e65b8b7d0a20df4864f.jpg"
-                alt='武侠'
-              />
-            </div>
-          </div>
-          <p>文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足</p>
-        </router-link>
-        <router-link tag="li" to='/bookList:穿越'>
-          <div class="shelfBox">
-            <div>穿越</div>
-            <div>
-              <img
-                src="http://imgsrc.baidu.com/baike/abpic/item/0823dd54564e9258c36539ac9482d158ccbf4e1a.jpg"
-                alt='穿越'
-              />
-            </div>
-          </div>
-          <p>文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足</p>
-        </router-link>
-        <router-link tag="li" to='/bookList:悬疑'>
-          <div class="shelfBox">
-            <div>悬疑</div>
-            <div>
-              <img
-                src="http://imgsrc.baidu.com/baike/abpic/item/c9fcc3cec3fdfc03813e641dd33f8794a5c226d4.jpg"
-                alt='悬疑'
-              />
-            </div>
-          </div>
-          <p>文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足</p>
-        </router-link>
-        <router-link tag="li" to='/bookList:历史'>
-          <div class="shelfBox">
-            <div>历史</div>
-            <div>
-              <img
-                src="http://imgsrc.baidu.com/baike/abpic/item/a8014c086e061d953246def577f40ad163d9caff.jpg"
-                alt='历史'
-              />
-            </div>
-          </div>
-          <p>文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足</p>
-        </router-link>
-        <router-link tag="li" to='/bookList:游戏'>
-          <div class="shelfBox">
-            <div>游戏</div>
-            <div>
-              <img
-                src="http://imgsrc.baidu.com/baike/abpic/item/34fae6cd7b899e51206ca7fa4ca7d933c9950d79.jpg"
-                alt='游戏'
-              />
-            </div>
-          </div>
-          <p>文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足</p>
-        </router-link>
-        <router-link tag="li" to='/bookList:文学'>
-          <div class="shelfBox">
-            <div>文学</div>
-            <div>
-              <img
-                src="http://imgsrc.baidu.com/baike/abpic/item/622762d0f703918f79cb435b5b3d269759eec40d.jpg"
-                alt='文学'
-              />
-            </div>
-          </div>
-          <p>文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足</p>
+          <p>{{ item.context }}</p>
         </router-link>
       </ul>
     </div>
@@ -120,7 +36,57 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "shelfList",
+  data() {
+    return {
+      categoryname:['boy','girl'],
+      storyCategory:[
+        {
+          category_id:"Fantasy",
+          title:"玄幻",
+          img:"http://imgsrc.baidu.com/baike/abpic/item/0dd7912397dda144f6905e65b8b7d0a20df4864f.jpg",
+          context:"文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足"
+        },{
+           category_id:"urban",
+          title:"都市",
+          img:"http://imgsrc.baidu.com/baike/abpic/item/8b82b9014a90f603bf2f82853712b31bb151ed51.jpg",
+          context:"文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足"
+        },{
+          category_id:"knightErrant",
+          title:"武侠",
+          img:"http://imgsrc.baidu.com/baike/abpic/item/0dd7912397dda144f6905e65b8b7d0a20df4864f.jpg",
+          context:"文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足"
+        },{
+          category_id:"literature",
+          title:"文学",
+          img:"http://imgsrc.baidu.com/baike/abpic/item/0dd7912397dda144f6905e65b8b7d0a20df4864f.jpg",
+          context:"文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足"
+        },{
+          category_id:"passThrough",
+          title:"穿越",
+          img:"http://imgsrc.baidu.com/baike/abpic/item/0dd7912397dda144f6905e65b8b7d0a20df4864f.jpg",
+          context:"文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足"
+        },{
+          category_id:"suspense",
+          title:"悬疑",
+          img:"http://imgsrc.baidu.com/baike/abpic/item/0dd7912397dda144f6905e65b8b7d0a20df4864f.jpg",
+          context:"文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足"
+        },{
+          category_id:"history",
+          title:"历史",
+          img:"http://imgsrc.baidu.com/baike/abpic/item/0dd7912397dda144f6905e65b8b7d0a20df4864f.jpg",
+          context:"文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足"
+        },{
+          category_id:"game",
+          title:"游戏",
+          img:"http://imgsrc.baidu.com/baike/abpic/item/0dd7912397dda144f6905e65b8b7d0a20df4864f.jpg",
+          context:"文体光怪陆离如穿越、东方玄幻、修真仙侠、高武，甚或改编电影动漫等等不一而足"
+        }
+      ]
+    };
+  }
+};
 </script>
 
 <style scoped>
@@ -212,8 +178,8 @@ h2 {
   white-space: nowrap;
   text-overflow: ellipsis;
   line-height: 30px;
-  padding-left:15px;
+  padding-left: 15px;
   box-sizing: border-box;
-  color:#ccc;
+  color: #ccc;
 }
 </style>
