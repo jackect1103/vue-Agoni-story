@@ -62,16 +62,12 @@ img {
   width: 100%;
   height: 100%;
 }
-#content{
-  /* position: relative; */
-}
 #content ul {
   width: 100%;
   margin-top: 5px;
 }
 #content ul li {
   width: 100%;
-  height: 280px;
   background-color: #fff;
   padding: 0 10px;
   box-sizing: border-box;

@@ -4,7 +4,7 @@ export default {
     children:[
         {
             // 无参数
-            path:"category",
+            path:"category/:target",
             component:()=>import('@/views/bookShelf/category.vue'),
             props: true,
             meta:"category"

@@ -147,7 +147,6 @@ h2 {
 .classification .shelfList li {
   float: left;
   width: 48%;
-  height: 110px;
   background-color: #fff;
   margin-bottom: 15px;
   border-radius: 5px;

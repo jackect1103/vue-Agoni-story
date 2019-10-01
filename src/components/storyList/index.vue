@@ -209,7 +209,7 @@ export default {
 }
 .youLove ul {
   width: 100%;
-  height: 160px;
+  /* height: 160px; */
   display: flex;
   margin-top: 5px;
 }
