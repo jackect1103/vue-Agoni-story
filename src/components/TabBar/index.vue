@@ -32,7 +32,7 @@ export default {
   width: 100%;
   height: 50px;
   background: white;
-  border-top: 2px #ebe8e3 solid;
+  border-top: 2px #B3B3B3 solid;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -49,7 +49,7 @@ export default {
   height: 40px;
 }
 #footer ul li.router-link-active {
-  color: #7DBABB;
+  color: #B3B3B3;
 }
 #footer ul i {
   font-size: 20px;

@@ -29,7 +29,9 @@ export default {
 
 <style scoped>
 .content {
-  background: linear-gradient(#63979f, #8ec7b6);
+  width:100%;
+  background:url('../../../public/bg.png') no-repeat;
+  background-size:cover;
   height: 100%;
   margin-bottom: 0;
   overflow: hidden;
@@ -63,17 +65,17 @@ export default {
   text-indent: 10px;
   text-align: center;
   border-radius: 15px;
-  background-color: #88c5be;
+  background-color: #fff;
 }
 /*  placeholder 设置字体颜色 同时主要是要兼容 火狐，IE 和 谷歌浏览器。*/
 input:-moz-placeholder {
-  color: #fff;
+  color: #B3B3B3;
 }
 input:-ms-input-placeholder {
-  color: #fff;
+  color: #B3B3B3;
 }
 input::-webkit-input-placeholder {
-  color: #fff;
+  color: #B3B3B3;
 }
 .login_body .login_btn {
   width: 100%;
@@ -87,7 +89,7 @@ input::-webkit-input-placeholder {
   border-radius: 15px;
   border: none;
   display: block;
-  color: #97d6c3;
+  color: #000;
   font-size: 20px;
   outline: none;
   letter-spacing:8px;
@@ -99,7 +101,7 @@ input::-webkit-input-placeholder {
 .login_body .login_link a {
   text-decoration: none;
   margin: 0 5px;
-  font-size: 12px;
-  color: #fff;
+  font-size: 14px;
+  color: #000;
 }
 </style>

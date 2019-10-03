@@ -199,7 +199,7 @@ export default {
   font-size: 12px;
   cursor: pointer;
 }
-.youLove span {
+/* .youLove span {
   font-size: 12px;
   color: #999;
   float: right;
@@ -209,7 +209,7 @@ export default {
 }
 .youLove ul {
   width: 100%;
-  /* height: 160px; */
+  height: 160px;
   display: flex;
   margin-top: 5px;
 }
@@ -235,5 +235,5 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-}
+} */
 </style>

@@ -30,8 +30,8 @@ export default {
   width: 100%;
   height: 50px;
   color: #fff;
-  background: #7dbabb;
-  border-bottom: 1px solid #7dbabb;
+  background: #B3B3B3;
+  border-bottom: 1px solid #b3B3B3;
   position: relative;
   display: flex;
   justify-content: space-between;

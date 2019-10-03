@@ -12,19 +12,19 @@
         <div class="swiper-container" slot="swiper1" id="banner">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="http://n.sinaimg.cn/book/459/w890h369/20190527/7375-hxntqyz3157608.jpg" />
+              <img src="https://img.zcool.cn/community/01da355d902048a8012060bed7b396.jpg@1380w" />
             </div>
             <div class="swiper-slide">
               <img
-                src="http://hbimg.b0.upaiyun.com/b543445ce21355d290783b9f176cb348068f0845df1e-L8fz4l_fw658"
+                src="https://img.zcool.cn/community/011c775d92b86aa8012060be1d0111.jpg@1380w"
               />
             </div>
             <div class="swiper-slide">
-              <img src="http://n.sinaimg.cn/book/459/w890h369/20190527/7375-hxntqyz3157608.jpg" />
+              <img src="https://img.zcool.cn/community/0134be5d9020a1a8012060beab571b.jpg@1380w" />
             </div>
             <div class="swiper-slide">
               <img
-                src="http://hbimg.b0.upaiyun.com/bdd20751d60605275d00cefa1f6dfdb5cd5e7d0f1cf26-pty2Ye_fw658"
+                src="https://img.zcool.cn/community/0104785d90203aa8012060beb139bf.jpg@1380w"
               />
             </div>
           </div>
@@ -64,7 +64,7 @@ export default {
     var mySwiper = new Swiper("#banner", {
       loop: true,
       autoplay: {
-        delay: 1000
+        delay: 2000
       },
       pagination: {
         el: ".swiper-pagination"
@@ -76,8 +76,10 @@ export default {
 
 <style scoped>
 .swiper-container {
-  width: 100%;
+  width: 95%;
   height: 150px;
+  border-radius:5px;
+  margin:10px auto 15px;
 }
 
 .swiper-wrapper {

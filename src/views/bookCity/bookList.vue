@@ -8,9 +8,9 @@
         <h1 class="recommend">
           出版精品
           <router-link :to="'/bookcity/category/'+target" tag="span">查看全部></router-link>
-        </h1> 
+        </h1>
         <ul>
-          <li v-for="item in youLove" :key="item.id" @tap='handleToDetail(item.id)'>
+          <li v-for="item in youLove" :key="item.id" @tap="handleToDetail(item.id)">
             <div>
               <img v-lazy="item.img" />
             </div>
@@ -21,7 +21,12 @@
       <h1 class="recommend">热门推荐</h1>
       <!-- 精彩推荐 list -->
       <ul>
-        <router-link :to='"/bookcity/storypage/"+item.id' tag="li" v-for="item in storyList" :key="item.id">
+        <router-link
+          :to="'/bookcity/storypage/'+item.id"
+          tag="li"
+          v-for="item in storyList"
+          :key="item.id"
+        >
           <div class="pic_show">
             <img :src="item.img" />
           </div>
@@ -30,19 +35,20 @@
             <p>作者:{{ item.author }}</p>
             <p>{{ item.evaluate }}</p>
             <p>
-              <span class="person">{{ item.number }} </span> 已读
+              <span class="person">{{ item.number }}</span> 已读
             </p>
           </div>
         </router-link>
       </ul>
     </div>
-   
+    <!--  -->
+    <!-- <router-view name="storyPage"></router-view> -->
   </div>
 </template>
 
 <script>
 import Swiper from "swiper";
-import BScorll from 'better-scroll'
+import BScorll from "better-scroll";
 import "swiper/dist/css/swiper.min.css";
 export default {
   name: "bookList",
@@ -50,19 +56,19 @@ export default {
     return {
       youLove: [
         {
-          id:0,
+          id: 0,
           img:
             "https://bookcover.yuewen.com/qdbimg/349573/c_11046521703587203/90",
           word: "人活百年，总有终期，老夫老妻，也总有一人要先走一"
         },
         {
-          id:1,
+          id: 1,
           img:
             "https://bookcover.yuewen.com/qdbimg/349573/c_14178274605353604/90",
           word: "暴躁戏精小太后vs无情腹黑渣帝，双洁，无血缘，无"
         },
         {
-          id:2,
+          id: 2,
           img:
             "https://bookcover.yuewen.com/qdbimg/349573/c_13776403405545404/180",
           word:
@@ -126,13 +132,13 @@ export default {
   activated() {
     console.log(this.$route.fullPath);
   },
-  mounted () {
+  mounted() {
     // new BScorll(this.$refs.bookList,{
     //   tap:true
     // })
   },
-  methods:{
-    handleToDetail(index){
+  methods: {
+    handleToDetail(index) {
       console.log(index);
     }
   }
@@ -252,7 +258,7 @@ export default {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.person{
-  margin-right:5px;
+.person {
+  margin-right: 5px;
 }
 </style>

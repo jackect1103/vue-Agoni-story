@@ -66,8 +66,17 @@ export default {
   line-height: 40px;
   flex: 1;
   text-align: center;
-  background-color: #9ccac8;
+  background-color: #B3B3B3;
   color: #fff;
+}
+.tabCard li:first-child{
+  background-color: #449DEF;
+}
+.tabCard li:nth-child(2){
+  background-color: #FD8473;
+}
+.tabCard li:last-child{
+  background-color: #FCC863;
 }
 .tabCard li .router-link-active {
   background-color: #f7f7f7;

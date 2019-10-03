@@ -4,7 +4,7 @@
     <Header title="书城">
       <router-link tag="i" to="/login" replace  class="iconfont icon-caidaniconwodehui" slot="back">
       </router-link>
-      <i class="iconfont icon-search" slot="search"></i>
+      <i class="iconfont icon-search" slot="search"></i> 
     </Header>
     <!-- 头部 end-->
     <!-- 内容区 start-->
@@ -18,7 +18,7 @@
             </div>
             <div class="swiper-slide">
               <img
-                src="http://hbimg.b0.upaiyun.com/b543445ce21355d290783b9f176cb348068f0845df1e-L8fz4l_fw658"
+                src="http://img0.imgtn.bdimg.com/it/u=2864754727,2934291957&fm=26&gp=0.jpg"
               />
             </div>
             <div class="swiper-slide">
@@ -26,7 +26,7 @@
             </div>
             <div class="swiper-slide">
               <img
-                src="http://hbimg.b0.upaiyun.com/bdd20751d60605275d00cefa1f6dfdb5cd5e7d0f1cf26-pty2Ye_fw658"
+                src="http://img0.imgtn.bdimg.com/it/u=2258661918,1645152258&fm=26&gp=0.jpg"
               />
             </div>
           </div>
@@ -39,7 +39,7 @@
     <!-- 内容区 end-->
     <!-- 底部导航 -->
     <TabBar />
-    <!-- 小说具体内容 -->
+    <!-- 查看更多 -->
     <router-view></router-view>
   </div>
 </template>
@@ -64,7 +64,7 @@ export default {
     var mySwiper = new Swiper("#banner", {
       loop: true,
       autoplay: {
-        delay: 1000
+        delay: 2000
       },
       pagination: {
         el: ".swiper-pagination"
@@ -72,12 +72,14 @@ export default {
     });
   }
 };
-</script>
+</script> 
 
 <style scoped>
 .swiper-container {
-  width: 100%;
-  /* height: 150px; */
+  width: 95%;
+  height: 150px;
+  border-radius:5px;
+  margin:10px auto 15px;
 }
 
 .swiper-wrapper {
