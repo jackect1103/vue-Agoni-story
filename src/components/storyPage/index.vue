@@ -4,7 +4,7 @@
     <Header :title="name">
       <i class="iconfont icon-back" @touchstart="handleToBack" slot="back"></i>
     </Header>
-    <div class="bookIntro">
+    <div class="bookIntro"> 
       <!-- 图片 -->
       <div class="storyPart">
         <div class="img">
