@@ -2,7 +2,10 @@
   <div id="editPage">
       <!-- 头部start -->
     <Header :title="name" />
-    editPage
+    <div class="editBox">
+      <textarea name="" id="" rows='20' placeholder="回复:发表评论" maxlength="100"></textarea><br><br>
+      <mt-button type="primary" size="large">确认提交</mt-button>
+    </div>
   </div>
 </template>
 
@@ -38,5 +41,22 @@ export default {
   width: 100%;
   min-height: 100%;
   background: #fff;
+}
+.editBox{
+  width:100%;
+  height: 100%;
+}
+textarea{
+  width:100%;
+  height:80%;
+  border:none;
+  border-bottom: 1px solid #ccc;
+  padding:5px 10px;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  line-height:25px;
+}
+textarea:target{
+  border:none;
 }
 </style>

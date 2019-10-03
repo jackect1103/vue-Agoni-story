@@ -1,13 +1,24 @@
 export default {
     path: '/bookcity',
     component: () => import('@/views/bookCity'),
-    children:[
+    children: [
+        {
+            path: "storypage",
+            component: () => import('@/components/storyPage'),
+            meta: "category"
+        },
         {
             // 无参数
-            path:"category/:target",
-            component:()=>import('@/views/bookShelf/category.vue'),
-            props: true,
-            meta:"category"
+            path: "category/:target",
+            components: {
+                default: () => import('@/views/bookShelf'),
+                more: () => import('@/views/bookShelf')
+            },
+            props: {
+                default: true,
+                more: true
+            },
+            meta: "category"
         }
     ]
 }

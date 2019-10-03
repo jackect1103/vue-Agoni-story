@@ -1,21 +1,29 @@
 <template>
   <div class="circleBox">
     <ul class="circleBox_ul">
-      <li v-for="item in dataList" :key="item.id">
+      <router-link
+        tag="li"
+        :to="{path:'/bookcircle/circleDetail/'+item.id}"
+        v-for="item in dataList"
+        :key="item.id"
+      >
         <h2>{{ item.title }}</h2>
         <div class="contentBox">
           <div class="contentImg">
-            <img :src="item.img" alt />
+            <img :src="item.img" alt /> 
           </div>
           <div class="conetntWord">
             <p>{{ item.content }}</p>
             <p class="date">
               {{ item.date }}
-              <router-link tag='span' to="/bookcircle/comment" class="st-icon-pandora">评论</router-link>
+              <span class="st-icon-pandora">
+                阅读量
+                <mt-badge size="small">1564</mt-badge>
+              </span>
             </p>
           </div>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>

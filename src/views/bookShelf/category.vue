@@ -1,6 +1,6 @@
 <template>
   <div id="category" class="slide-enter-active">
-    <StoryList/>
+    <StoryList/> 
   </div> 
 </template>
 

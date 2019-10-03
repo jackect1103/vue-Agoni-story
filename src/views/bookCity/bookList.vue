@@ -8,7 +8,7 @@
         <h1 class="recommend">
           出版精品
           <router-link :to="'/bookcity/category/'+target" tag="span">查看全部></router-link>
-        </h1>
+        </h1> 
         <ul>
           <li v-for="item in youLove" :key="item.id" @tap='handleToDetail(item.id)'>
             <div>
@@ -21,7 +21,7 @@
       <h1 class="recommend">热门推荐</h1>
       <!-- 精彩推荐 list -->
       <ul>
-        <router-link to tag="li" v-for="item in storyList" :key="item.id">
+        <router-link to='/bookcity/storypage' tag="li" v-for="item in storyList" :key="item.id">
           <div class="pic_show">
             <img :src="item.img" />
           </div>
@@ -30,12 +30,14 @@
             <p>作者:{{ item.author }}</p>
             <p>{{ item.evaluate }}</p>
             <p>
-              <span class="person">{{ item.number }}</span> 已读
+              <span class="person">{{ item.number }} </span> 已读
             </p>
           </div>
         </router-link>
       </ul>
     </div>
+    <!-- 小说具体内容 -->
+    <router-view></router-view> 
   </div>
 </template>
 
@@ -250,5 +252,8 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+.person{
+  margin-right:5px;
 }
 </style>

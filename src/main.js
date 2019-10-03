@@ -3,9 +3,10 @@ import App from './App.vue'
 import router from './routers'
 import store from './stores'
 import 'mint-ui/lib/style.css'
-import { Swipe, SwipeItem ,Field,Search ,Cell,Badge  } from 'mint-ui';
+import { Button ,Swipe, SwipeItem ,Field,Search ,Cell,Badge  } from 'mint-ui';
 import VueLazyload from 'vue-lazyload'
 
+Vue.component(Button.name, Button);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Field.name, Field);
