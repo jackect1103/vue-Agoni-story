@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Header />
+    <Header>
+      <i class="iconfont icon-back" @touchstart="handleToBack" slot="back"></i>
+    </Header>
     <mt-search v-model="keywords" cancel-text="取消" placeholder="search"></mt-search>
     <ul>
       <li v-for="(item,id) in search(keywords)" :key="id">
@@ -61,6 +63,9 @@ export default {
         }
       });
       return newResult;
+    },
+    handleToBack() {
+      this.$router.back();
     }
   }
 };

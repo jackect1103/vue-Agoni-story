@@ -1,7 +1,9 @@
 <template>
   <div id="circleContrainer" class="slide-enter-active">
     <!-- 头部start -->
-    <Header title="文章详情" />
+    <Header title="文章详情" >
+      <i class="iconfont icon-back" @touchstart="handleToBack" slot="back"></i>
+    </Header>
     <!-- 头部end -->
     <!-- 内容区域start -->
     <div class="circleText">
@@ -169,6 +171,9 @@ export default {
     handleMore() {
       this.isNotMore = !this.isNotMore;
       this.$refs.more.innerHTML = this.isNotMore ? "更多..." : "收起";
+    },
+    handleToBack() {
+      this.$router.back();
     }
   }
 };

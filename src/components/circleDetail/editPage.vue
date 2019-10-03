@@ -1,7 +1,10 @@
 <template>
   <div id="editPage">
       <!-- 头部start -->
-    <Header :title="name" />
+    <!-- <Header :title="name" /> -->
+    <Header :title="name" >
+      <i class="iconfont icon-back" @touchstart="handleToBack" slot="back"></i>
+    </Header>
     <div class="editBox">
       <textarea name="" id="" rows='20' placeholder="回复:发表评论" maxlength="100"></textarea><br><br>
       <mt-button type="primary" size="large">确认提交</mt-button>
@@ -18,6 +21,11 @@ export default {
   },
   data() {
     return {};
+  },
+  methods:{
+    handleToBack() {
+      this.$router.back();
+    }
   },
   //监听属性 类似于data概念
   computed: {},

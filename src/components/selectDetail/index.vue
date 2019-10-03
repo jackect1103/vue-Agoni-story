@@ -1,8 +1,9 @@
 <template>
   <div id="selectDetailContrainer" class="slide-enter-active">
-    <Header :title="msg" />
-    <div class="commentText">{{ msg }}
-    </div>
+    <Header :title="msg">
+      <i class="iconfont icon-back" @touchstart="handleToBack" slot="back"></i>
+    </Header>
+    <div class="commentText">{{ msg }}</div>
   </div>
 </template>
 
@@ -15,13 +16,18 @@ export default {
   },
   data() {
     return {
-      msg:this.id+' 获取路由上id  使用 props 将组件和路由解耦'
+      msg: this.id + " 获取路由上id  使用 props 将组件和路由解耦"
     };
   },
   // 获取路由上id  使用 props 将组件和路由解耦
   props: ["id"],
   mounted() {
     console.log(this.$route.params);
+  },
+  methods: {
+    handleToBack() {
+      this.$router.back();
+    }
   }
 };
 </script>

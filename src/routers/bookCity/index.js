@@ -3,21 +3,16 @@ export default {
     component: () => import('@/views/bookCity'),
     children: [
         {
-            path: "storypage",
+            path: "storypage/:id",
             component: () => import('@/components/storyPage'),
+            props:true,
             meta: "category"
         },
         {
             // 无参数
             path: "category/:target",
-            components: {
-                default: () => import('@/views/bookShelf'),
-                more: () => import('@/views/bookShelf')
-            },
-            props: {
-                default: true,
-                more: true
-            },
+            component:() => import('@/views/bookShelf/category'),
+            props:true,
             meta: "category"
         }
     ]

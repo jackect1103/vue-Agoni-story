@@ -1,7 +1,11 @@
 <template>
   <div id="main">
     <!-- header start-->
-    <Header title="圈子" />
+    <Header title="圈子">
+      <router-link tag="i" to="/login" replace  class="iconfont icon-caidaniconwodehui" slot="back">
+      </router-link>
+      <i class="iconfont icon-search" slot='search'></i>
+    </Header>
     <div id="content">
       <CircleTab>
         <!-- banner start-->

@@ -21,7 +21,7 @@
       <h1 class="recommend">热门推荐</h1>
       <!-- 精彩推荐 list -->
       <ul>
-        <router-link to='/bookcity/storypage' tag="li" v-for="item in storyList" :key="item.id">
+        <router-link :to='"/bookcity/storypage/"+item.id' tag="li" v-for="item in storyList" :key="item.id">
           <div class="pic_show">
             <img :src="item.img" />
           </div>
@@ -36,8 +36,7 @@
         </router-link>
       </ul>
     </div>
-    <!-- 小说具体内容 -->
-    <router-view></router-view> 
+   
   </div>
 </template>
 
@@ -128,9 +127,9 @@ export default {
     console.log(this.$route.fullPath);
   },
   mounted () {
-    new BScorll(this.$refs.bookList,{
-      tap:true
-    })
+    // new BScorll(this.$refs.bookList,{
+    //   tap:true
+    // })
   },
   methods:{
     handleToDetail(index){

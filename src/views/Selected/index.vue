@@ -1,7 +1,11 @@
 <template>
   <div id="main">
     <!-- header start -->
-    <Header title="精选"/>
+    <Header title="精选">
+      <router-link tag="i" to="/login" replace  class="iconfont icon-caidaniconwodehui" slot="back">
+      </router-link>
+      <i class="iconfont icon-search" slot='search'></i>
+    </Header>
     <!-- header end --> 
     <SelectList/>
     <!-- footer start -->

@@ -1,7 +1,9 @@
 <template>
   <div class="comment">
     <!-- 头部start -->
-    <Header :title="name" />
+    <Header :title="name" >
+      <i class="iconfont icon-back" @touchstart="handleToBack" slot="back"></i>
+    </Header>
     <!-- 某个评论的页面 -->
     <div class="someOneComment">
       <!-- 头像 -->
@@ -236,6 +238,11 @@ export default {
       ]
     };
   },
+  methods:{
+    handleToBack() {
+      this.$router.back();
+    }
+  },
   //监听属性 类似于data概念
   computed: {},
   //监控data中的数据变化
@@ -350,8 +357,5 @@ export default {
   height: 105px;
   text-align: center;
   margin: 35px 0;
-}
-.iconfont {
-  font-size: 35px;
 }
 </style>

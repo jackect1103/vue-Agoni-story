@@ -35,7 +35,6 @@
           </router-link>
         </ul>
       </div>
-      <router-view></router-view>
     </div>
   </div>
 </template>

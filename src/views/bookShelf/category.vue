@@ -1,22 +1,29 @@
 <template>
   <div id="category" class="slide-enter-active">
-    <StoryList/> 
-  </div> 
+    <Header>
+      <i class="iconfont icon-back" @touchstart="handleToBack" slot="back"></i>
+    </Header>
+    <StoryList />
+  </div>
 </template>
 
 <script>
-
 import Header from "@/components/Header";
 import StoryList from "@/components/storyList";
 export default {
   name: "category",
-  components: {
+  components: { 
     Header,
     StoryList
   },
   props: ["categoryname"],
   mounted() {
     console.log(this.$route.params);
+  },
+  methods:{
+    handleToBack() {
+      this.$router.back();
+    }
   }
 };
 </script>

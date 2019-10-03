@@ -1,7 +1,5 @@
 <template>
-  <div id="storyPage">
-      storyPage
-  </div>
+  <div id="storyPage">storyPage</div>
 </template>
 
 <script>
@@ -25,12 +23,12 @@ export default {
 };
 </script>
 <style lang='css' scoped>
-#storyPage{
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: white;
-    width:100%;
-    min-height:100%;
+#storyPage {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  min-height: 100%;
+  background: white;
 }
 </style>

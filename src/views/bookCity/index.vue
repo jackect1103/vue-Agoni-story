@@ -1,7 +1,11 @@
 <template>
   <div id="main">
     <!-- 头部 start-->
-    <Header title="书城" />
+    <Header title="书城">
+      <router-link tag="i" to="/login" replace  class="iconfont icon-caidaniconwodehui" slot="back">
+      </router-link>
+      <i class="iconfont icon-search" slot="search"></i>
+    </Header>
     <!-- 头部 end-->
     <!-- 内容区 start-->
     <div id="content">
@@ -35,9 +39,8 @@
     <!-- 内容区 end-->
     <!-- 底部导航 -->
     <TabBar />
-    
-    <!-- 查看更多 -->
-    <router-view name='more'></router-view>
+    <!-- 小说具体内容 -->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -74,7 +77,7 @@ export default {
 <style scoped>
 .swiper-container {
   width: 100%;
-  height: 150px;
+  /* height: 150px; */
 }
 
 .swiper-wrapper {

@@ -1,8 +1,13 @@
 <template>
   <div id="main">
-    <Header :title="title" />
+    <Header :title="title">
+      <router-link tag="i" to="/login" replace  class="iconfont icon-caidaniconwodehui" slot="back">
+      </router-link>
+      <i class="iconfont icon-search" slot='search'></i>
+    </Header>
     <shelfList />
     <TabBar />
+    <router-view></router-view>
   </div>
 </template>
 
