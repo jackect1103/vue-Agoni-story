@@ -1,5 +1,5 @@
 <template>
-  <div id="content">
+  <div class="content">
     <div class="register_body">
       <div>
         <img src="../../assets/logo.jpg" alt />
@@ -27,14 +27,16 @@ export default {
 </script>
 
 <style scoped>
-#content {
+.content {
   background: linear-gradient(#63979f, #8ec7b6);
   height: 100%;
   margin-bottom: 0;
+  overflow: hidden;
 }
-#content .register_body {
+.content .register_body {
   width: 80%;
-  margin: 50px auto;
+  height: 100%;
+  margin: 50px auto 0;
 }
 .register_body > div {
   margin-top: 25px;

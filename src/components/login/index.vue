@@ -1,5 +1,5 @@
 <template>
-  <div id="content">
+  <div class="content">
     <div class="login_body">
       <div>
         <img src="../../assets/logo.jpg" alt />
@@ -28,15 +28,16 @@ export default {
 </script>
 
 <style scoped>
-#content {
+.content {
   background: linear-gradient(#63979f, #8ec7b6);
   height: 100%;
   margin-bottom: 0;
+  overflow: hidden;
 }
-#content .login_body {
+.content .login_body {
   width: 80%;
   height: 100%;
-  margin: 50px auto;
+  margin: 50px auto 0;
 }
 .login_body > div {
   margin-top: 25px;

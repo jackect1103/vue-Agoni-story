@@ -2,41 +2,50 @@
   <div id="main">
     <!-- header start-->
     <Header title="圈子" />
-    <!-- header end-->
-    <!-- tab选项框 start -->
-    <circleTab>
-      <div slot="tabCard" class="tabVar">
-        <!-- router-link -->
-        <ul class="tabCard">
-          <router-link to="/bookcircle/BookNews" tag="li" replace>
-            <i class="iconfont icon-book1"></i>&nbsp;书讯
-          </router-link>
-          <router-link to="/bookcircle/ChildrensBooks" tag="li" replace>
-            <i class="iconfont icon-book"></i>&nbsp;童书
-          </router-link>
-          <router-link to="/bookcircle/activity" tag="li" replace>
-            <i class="iconfont icon-huodong"></i>&nbsp;活动
-          </router-link>
-        </ul>
-        <!-- 二级路由 组件在circleTab-->
-        <keep-alive>
-          <router-view></router-view>
-        </keep-alive>
-      </div>
-    </circleTab>
-    <!-- tab选项框 end -->
+    <div id="content">
+      <CircleTab>
+        <!-- banner start-->
+        <div class="swiper-container" slot="swiper1" id="banner">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="http://n.sinaimg.cn/book/459/w890h369/20190527/7375-hxntqyz3157608.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="http://hbimg.b0.upaiyun.com/b543445ce21355d290783b9f176cb348068f0845df1e-L8fz4l_fw658"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img src="http://n.sinaimg.cn/book/459/w890h369/20190527/7375-hxntqyz3157608.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="http://hbimg.b0.upaiyun.com/bdd20751d60605275d00cefa1f6dfdb5cd5e7d0f1cf26-pty2Ye_fw658"
+              />
+            </div>
+          </div>
+          <!-- 如果需要分页器 -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </CircleTab>
+    </div>
     <!-- footer satrt-->
     <TabBar />
-    <!-- footer end-->
-    <!-- 评论视图 -->
-    <router-view name="comment" />
+    <!-- 文章视图 三极路由-->
+    <router-view name="article" />
+    <!-- 评论区域 -->
+    <router-view name="comment"></router-view>
+    <!--编辑评论区域 -->
+    <router-view name="editpage"></router-view>
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
 import TabBar from "@/components/TabBar";
-import circleTab from "./circleTab";
+import CircleTab from "./circleTab.vue";
+import Swiper from "swiper";
+import "swiper/dist/css/swiper.min.css";
 export default {
   name: "bookCircle",
   data() {
@@ -45,31 +54,42 @@ export default {
   components: {
     Header,
     TabBar,
-    circleTab
+    CircleTab
+  },
+  activated() {
+    var mySwiper = new Swiper("#banner", {
+      loop: true,
+      autoplay: {
+        delay: 1000
+      },
+      pagination: {
+        el: ".swiper-pagination"
+      }
+    });
   }
 };
 </script>
 
 <style scoped>
-.tabVar {
-  background-color: #fff;
-}
-.tabCard {
+.swiper-container {
   width: 100%;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
+  height: 150px;
 }
-.tabCard li {
-  line-height: 40px;
-  flex: 1;
+
+.swiper-wrapper {
+  height: 100%;
+}
+
+.swiper-slide img {
+  max-width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
   text-align: center;
-  background-color: #9ccac8;
-  color: #fff;
-}
-.tabCard li .router-link-active {
-  background-color: #f7f7f7;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

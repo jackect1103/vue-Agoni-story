@@ -19,7 +19,7 @@
       </router-link>
     </ul>
   </div>
-</template>
+</template> 
 
 <script>
 export default {

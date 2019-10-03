@@ -1,11 +1,11 @@
 <template>
   <div id="category" class="slide-enter-active">
-    <Header :title='categoryname'/>
     <StoryList/>
-  </div>
+  </div> 
 </template>
 
 <script>
+
 import Header from "@/components/Header";
 import StoryList from "@/components/storyList";
 export default {
@@ -24,7 +24,7 @@ export default {
 #category {
   position: absolute;
   left: 0;
-  /* top: 0; */
+  top: 0;
   z-index: 100;
   width: 100%;
   min-height: 100%;

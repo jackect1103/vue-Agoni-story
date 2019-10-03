@@ -1,44 +1,47 @@
 <template>
-  <div class="bookList">
-    <!-- 轮播图 -->
-    <slot name="swiper1"></slot>
-    <!-- 猜你在追 -->
-    <div class="youLove">
-      <h1 class="recommend">
-        出版精品
-        <router-link :to="'/bookcity/category/'+target" tag="span">查看全部></router-link>
-      </h1>
+  <div class="bookList" ref="bookList">
+    <div class="wrapper">
+      <!-- 轮播图 -->
+      <slot name="swiper1"></slot>
+      <!-- 猜你在追 -->
+      <div class="youLove">
+        <h1 class="recommend">
+          出版精品
+          <router-link :to="'/bookcity/category/'+target" tag="span">查看全部></router-link>
+        </h1>
+        <ul>
+          <li v-for="item in youLove" :key="item.id" @tap='handleToDetail(item.id)'>
+            <div>
+              <img v-lazy="item.img" />
+            </div>
+            <p>{{ item.word }}</p>
+          </li>
+        </ul>
+      </div>
+      <h1 class="recommend">热门推荐</h1>
+      <!-- 精彩推荐 list -->
       <ul>
-        <li v-for="item in youLove" :key="item.index">
-          <div>
-            <img v-lazy="item.img" />
+        <router-link to tag="li" v-for="item in storyList" :key="item.id">
+          <div class="pic_show">
+            <img :src="item.img" />
           </div>
-          <p>{{ item.word }}</p>
-        </li>
+          <div class="info_list">
+            <h2>{{ item.title }}</h2>
+            <p>作者:{{ item.author }}</p>
+            <p>{{ item.evaluate }}</p>
+            <p>
+              <span class="person">{{ item.number }}</span> 已读
+            </p>
+          </div>
+        </router-link>
       </ul>
     </div>
-    <h1 class="recommend">热门推荐</h1>
-    <!-- 精彩推荐 list -->
-    <ul>
-      <router-link to tag="li" v-for="item in storyList" :key="item.id">
-        <div class="pic_show">
-          <img :src="item.img" />
-        </div>
-        <div class="info_list">
-          <h2>{{ item.title }}</h2>
-          <p>作者:{{ item.author }}</p>
-          <p>{{ item.evaluate }}</p>
-          <p>
-            <span class="person">{{ item.number }}</span> 已读
-          </p>
-        </div>
-      </router-link>
-    </ul>
   </div>
 </template>
 
 <script>
 import Swiper from "swiper";
+import BScorll from 'better-scroll'
 import "swiper/dist/css/swiper.min.css";
 export default {
   name: "bookList",
@@ -46,16 +49,19 @@ export default {
     return {
       youLove: [
         {
+          id:0,
           img:
             "https://bookcover.yuewen.com/qdbimg/349573/c_11046521703587203/90",
           word: "人活百年，总有终期，老夫老妻，也总有一人要先走一"
         },
         {
+          id:1,
           img:
             "https://bookcover.yuewen.com/qdbimg/349573/c_14178274605353604/90",
           word: "暴躁戏精小太后vs无情腹黑渣帝，双洁，无血缘，无"
         },
         {
+          id:2,
           img:
             "https://bookcover.yuewen.com/qdbimg/349573/c_13776403405545404/180",
           word:
@@ -118,11 +124,24 @@ export default {
   },
   activated() {
     console.log(this.$route.fullPath);
+  },
+  mounted () {
+    new BScorll(this.$refs.bookList,{
+      tap:true
+    })
+  },
+  methods:{
+    handleToDetail(index){
+      console.log(index);
+    }
   }
 };
 </script>
 
 <style scoped>
+.wrapper {
+  overflow: hidden;
+}
 #content .bookList {
   flex: 1;
   overflow: auto;
@@ -133,11 +152,11 @@ export default {
   box-sizing: border-box;
   font-size: 16px;
 }
-.bookList > ul {
+.bookList .wrapper > ul {
   margin: 0 12px;
   overflow: hidden;
 }
-.bookList > ul li {
+.bookList .wrapper > ul li {
   margin-top: 12px;
   display: flex;
   align-items: center;

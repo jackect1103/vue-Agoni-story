@@ -1,20 +1,26 @@
 <template>
-  <div class="circleTab">
-    <!-- 轮播图 start -->
-    <mt-swipe :auto="4000">
-      <mt-swipe-item>
-        <img src="http://bpic.588ku.com/back_pic/03/66/98/5857b120313993e.jpg" alt />
-      </mt-swipe-item>
-      <mt-swipe-item>
-        <img src="http://bpic.588ku.com/back_pic/17/05/20/217b3fe228f3dd502e02326311b212eb.jpg" alt />
-      </mt-swipe-item>
-      <mt-swipe-item>
-        <img src="http://bpic.588ku.com/back_pic/17/07/08/81a85c0162a43904577d9c417b3bb89d.jpg" alt />
-      </mt-swipe-item>
-    </mt-swipe>
-    <!-- 轮播图 end -->
+  <div id="circleTab">
+    <!-- 轮播图 -->
+    <slot name="swiper1"></slot>
+    <!-- 书讯 童书 -->
+    <ul class="tabCard">
+      <router-link to="/bookcircle/BookNews" tag="li" replace>
+        <i class="iconfont icon-book1"></i>&nbsp;书讯
+      </router-link>
+      <router-link to="/bookcircle/ChildrensBooks" tag="li" replace>
+        <i class="iconfont icon-book"></i>&nbsp;童书
+      </router-link>
+      <router-link to="/bookcircle/activity" tag="li" replace>
+        <i class="iconfont icon-huodong"></i>&nbsp;活动
+      </router-link>
+    </ul>
     <!-- tab选项框 start -->
-    <slot name="tabCard"></slot>
+    <div class="tabVar">
+      <!--显示书讯-童书tab 二级路由 组件在circleTab-->
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </div>
     <!-- tab选项框 end -->
   </div>
 </template>
@@ -45,5 +51,25 @@ export default {
   color: inherit;
   padding: 20px;
   display: block;
+}
+.tabVar {
+  background-color: #fff;
+  margin-top: 10px;
+}
+.tabCard {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tabCard li {
+  line-height: 40px;
+  flex: 1;
+  text-align: center;
+  background-color: #9ccac8;
+  color: #fff;
+}
+.tabCard li .router-link-active {
+  background-color: #f7f7f7;
 }
 </style>

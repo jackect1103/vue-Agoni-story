@@ -1,9 +1,9 @@
 <template>
   <div>
-      <Header />
+    <Header />
     <mt-search v-model="keywords" cancel-text="取消" placeholder="search"></mt-search>
     <ul>
-      <li v-for="(item,id) in search(keywords)" :key="id" >
+      <li v-for="(item,id) in search(keywords)" :key="id">
         <p>{{ item.title }}</p>
       </li>
     </ul>
@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import Header from '@/components/Header'
+import Header from "@/components/Header";
 export default {
   name: "search",
-  components:{
-      Header
+  components: {
+    Header
   },
   data() {
     return {

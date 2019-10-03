@@ -7,17 +7,18 @@
     <div id="content">
       <booksList>
         <!-- banner start-->
-        <div class="swiper-container" slot="swiper1" id='banner'>
+        <div class="swiper-container" slot="swiper1" id="banner">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img
-                src="http://hbimg.b0.upaiyun.com/d79a775d81ef65b40d399483a94d6b8b6770300f3b38f-OgqWWA_fw658"
-              />
+              <img src="http://n.sinaimg.cn/book/459/w890h369/20190527/7375-hxntqyz3157608.jpg" />
             </div>
             <div class="swiper-slide">
               <img
                 src="http://hbimg.b0.upaiyun.com/b543445ce21355d290783b9f176cb348068f0845df1e-L8fz4l_fw658"
               />
+            </div>
+            <div class="swiper-slide">
+              <img src="http://n.sinaimg.cn/book/459/w890h369/20190527/7375-hxntqyz3157608.jpg" />
             </div>
             <div class="swiper-slide">
               <img

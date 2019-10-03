@@ -2,7 +2,7 @@
   <div id="main">
     <!-- header start -->
     <Header title="精选"/>
-    <!-- header end -->
+    <!-- header end --> 
     <SelectList/>
     <!-- footer start -->
     <TabBar />

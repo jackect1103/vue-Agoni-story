@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "babel-plugin-component": "^1.1.1",
+    "better-scroll": "^1.15.2",
     "core-js": "^2.6.5",
     "mint-ui": "^2.2.13",
     "swiper": "^4.5.1",

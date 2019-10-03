@@ -1,7 +1,8 @@
 <template>
   <div id="selectDetailContrainer" class="slide-enter-active">
     <Header :title="msg" />
-    <div class="commentText">{{ msg }}</div>
+    <div class="commentText">{{ msg }}
+    </div>
   </div>
 </template>
 
@@ -29,7 +30,6 @@ export default {
 #selectDetailContrainer {
   position: absolute;
   left: 0;
-  top: 0;
   z-index: 100;
   width: 100%;
   min-height: 100%;

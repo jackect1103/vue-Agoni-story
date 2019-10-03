@@ -10,7 +10,7 @@
         <h2>{{ item.title }}</h2>
         <div class="contentBox">
           <div class="contentImg">
-            <img :src="item.img" alt />
+            <img :src="item.img" alt /> 
           </div>
           <div class="conetntWord">
             <p>{{ item.content }}</p>
@@ -24,7 +24,7 @@
           </div>
         </div>
       </router-link>
-    </ul>
+    </ul> 
   </div>
 </template>
 
@@ -82,8 +82,15 @@ export default {
       ]
     };
   }
-};
+}; 
 </script>
 
 <style lang="css" scoped>
+.circleBox{
+  flex: 1;
+  overflow: auto;
+}
+.circleBox_ul{
+  overflow: hidden;
+}
 </style>

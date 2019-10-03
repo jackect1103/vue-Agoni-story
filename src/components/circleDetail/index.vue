@@ -42,27 +42,38 @@
               <div class="user_info">
                 <p class="user_name">
                   {{ item.user_name }}
+                  <!-- 评论 -->
                   <span style="float:right">
-                      <i class="iconfont icon-pinglun"></i>
+                    <router-link
+                      tag="i"
+                      :to="'/bookcircle/circleDetail/'+number+'/'+name"
+                      class="iconfont icon-pinglun"
+                    ></router-link>
+                    
                   </span>
-                  <span style="float:right;padding-right:5px;box-sizing:border-box">
-                      <i class="iconfont icon-dianzan11"></i>
+                  <!-- 点赞 -->
+                  <span style="float:right;padding-right:15px;box-sizing:border-box">
+                    <i class="iconfont icon-dianzan11"></i>
                   </span>
                 </p>
                 <p class="commentTime">{{ item.commentTime }}</p>
                 <p class="commentContent">{{ item.commentContent }}</p>
                 <ul class="otherComment">
-                  <li v-for="otherItem in item.otherComment" :key="otherItem.id">
+                  <router-link
+                    tag="li"
+                    :to="'/bookcircle/circleDetail/'+number+'/'+name"
+                    v-for="otherItem in item.otherComment"
+                    :key="otherItem.id"
+                  >
                     <span class="other_user">{{ otherItem.other_user }}</span>:
                     <span class="other_content">{{ otherItem.other_content }}</span>
-                  </li>
+                  </router-link>
                 </ul>
               </div>
             </div>
           </li>
         </ul>
       </div>
-      <!-- 评论区域end -->
     </div>
     <!-- 内容区域 end -->
   </div>
@@ -70,10 +81,12 @@
 
 <script>
 import Header from "@/components/Header";
+import Comment from "@/components/circleDetail/comment.vue";
 export default {
-  name: "comment",
+  name: "Article",
   components: {
-    Header
+    Header,
+    Comment
   },
   data() {
     return {
