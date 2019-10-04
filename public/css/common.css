@@ -40,10 +40,25 @@ body {
 }
 
 #header .iconfont {
-    font-size: 25px!important;
+    font-size: 25px !important;
 }
-#header li:last-child i{
+
+#header li:last-child i {
     display: inline-block;
-    margin-left:65%!important;
+    margin-left: 65% !important;
     box-sizing: border-box;
-  }
+}
+/* 组件切换效果 */
+.slide-enter-active {
+    animation: 0.3s slideMove;
+}
+
+@keyframes slideMove {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

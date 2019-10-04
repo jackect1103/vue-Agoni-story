@@ -10,12 +10,18 @@
           <router-link :to="'/bookcity/category/'+target" tag="span">查看全部></router-link>
         </h1>
         <ul>
-          <li v-for="item in youLove" :key="item.id" @tap="handleToDetail(item.id)">
+          <router-link
+            tag="li"
+            :to="'/bookcity/storypage/'+item.id"
+            v-for="item in youLove"
+            :key="item.id"
+            @tap="handleToDetail(item.id)"
+          >
             <div>
               <img v-lazy="item.img" />
             </div>
             <p>{{ item.word }}</p>
-          </li>
+          </router-link>
         </ul>
       </div>
       <h1 class="recommend">热门推荐</h1>
