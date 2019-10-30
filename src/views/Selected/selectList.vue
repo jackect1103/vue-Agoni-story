@@ -1,23 +1,31 @@
 <template>
   <div id="content">
-    <ul>
-      <router-link
-        tag="li"
-        v-for="item in selectList"
-        :key="item.id"
-        :to="'/selected/selectDetail/'+item.id"
+    <Loading v-if="isShowImgL">sckcm</Loading>
+    <BScroll>
+      <ul
+        v-infinite-scroll="loadMore"
+        infinite-scroll-disabled="loading"
+        infinite-scroll-distance="10"
       >
-        <p class="title">{{ item.title }}</p>
-        <div class="selectImg">
-          <img :src="item.img" alt />
-        </div>
-        <p class="select_word">{{ item.select_word }}</p>
-        <p class="select_more">
-          阅读全文
-          <span class="select_row">></span>
-        </p>
-      </router-link>
-    </ul>
+        <router-link
+          tag="li"
+          v-for="item in showList"
+          :key="item._id"
+          :to="'/selected/selectDetail/'+item._id"
+        >
+          <p class="title">{{ item.title }}</p>
+          <div class="selectImg">
+            <img :src="item.articleyImg" alt />
+          </div>
+          <p class="select_word">{{ item.desc }}</p>
+          <p class="select_more">
+            阅读全文
+            <span class="select_row">></span>
+          </p>
+        </router-link>
+        <span v-if="showLast" class="showLast">暂无数据...</span>
+      </ul>
+    </BScroll>
   </div>
 </template> 
 
@@ -26,33 +34,46 @@ export default {
   name: "selectList",
   data() {
     return {
-      selectList: [
-        {
-          id: 0,
-          title: "他在，心就安的。他在，整个世界就在‖文/何丽",
-          img:
-            "http://t11.baidu.com/it/u=1560587593,3602852519&fm=173&app=49&f=JPEG?w=218&h=146&s=A2D275C86404A95BCC8FD81A030080D1",
-          select_word:
-            "外爷死了，我没有在他身边看到他最后一眼，他得了癌症。我妈说我还小不让我多接触病人，有细菌。当时不知道我妈为什么那样，后来长大了才发现那是一个母亲的本能。"
-        },
-        {
-          id: 1,
-          title: "他在，心就安的。他在，整个世界就在‖文/何丽",
-          img:
-            "http://t11.baidu.com/it/u=1560587593,3602852519&fm=173&app=49&f=JPEG?w=218&h=146&s=A2D275C86404A95BCC8FD81A030080D1",
-          select_word:
-            "外爷死了，我没有在他身边看到他最后一眼，他得了癌症。我妈说我还小不让我多接触病人，有细菌。当时不知道我妈为什么那样，后来长大了才发现那是一个母亲的本能。"
-        },
-        {
-          id: 2,
-          title: "他在，心就安的。他在，整个世界就在‖文/何丽",
-          img:
-            "http://t11.baidu.com/it/u=1560587593,3602852519&fm=173&app=49&f=JPEG?w=218&h=146&s=A2D275C86404A95BCC8FD81A030080D1",
-          select_word:
-            "外爷死了，我没有在他身边看到他最后一眼，他得了癌症。我妈说我还小不让我多接触病人，有细菌。当时不知道我妈为什么那样，后来长大了才发现那是一个母亲的本能。"
-        }
-      ]
+      isShowImgL: false,
+      selectList: [],
+      showList: [],
+      loading: false,
+      showLast: false
     };
+  },
+  mounted() {
+    this.$axios.get("/api2/users/getAllArticle").then(res => {
+      var status = res.data.status;
+      if (status == 0) {
+        this.selectList = res.data.data.articleDatas;
+        console.log("status:", res.data);
+      } else {
+        console.log(res.data.msg);
+      }
+    });
+  },
+  methods: {
+    loadMore() {
+      this.isShowImgL = true;
+      this.loading = true;
+      setTimeout(() => {
+        this.isShowImgL = false;
+        let last = 0;
+        if (this.showList.length != 0) {
+          last = this.showList.length - 1;
+        }
+        for (let i = 0; i < 10; i++) {
+          if (this.showList.length < this.selectList.length) {
+            this.showList.push(this.selectList[last + i]);
+          } else {
+            this.showLast = true;
+            return;
+          }
+        }
+        console.log(this.showList);
+        this.loading = false;
+      }, 1000);
+    }
   }
 };
 </script>
@@ -103,5 +124,12 @@ img {
 }
 #content ul li .select_row {
   float: right;
+}
+/* showLast */
+.showLast {
+  display: inline-block;
+  width: 100%;
+  line-height: 35px;
+  text-align: center;
 }
 </style>

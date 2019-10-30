@@ -1,6 +1,7 @@
 <template>
   <div id="category" class="slide-enter-active">
-    <Header>
+    <!-- header start -->
+    <Header :title="title">
       <i class="iconfont icon-back" @touchstart="handleToBack" slot="back"></i>
     </Header>
     <StoryList />
@@ -12,22 +13,24 @@ import Header from "@/components/Header";
 import StoryList from "@/components/storyList";
 export default {
   name: "category",
-  components: { 
+  components: {
     Header,
     StoryList
   },
   props: ["categoryname"],
-  mounted() {
-    console.log(this.$route.params);
-  },
-  methods:{
+  methods: {
     handleToBack() {
       this.$router.back();
     }
   }
 };
 </script>
+
 <style lang='css' scoped>
+#header{
+  position: fixed;
+  z-index: 999;
+}
 #category {
   position: absolute;
   left: 0;

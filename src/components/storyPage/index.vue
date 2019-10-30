@@ -18,13 +18,15 @@ export default {
     bookIntro
   },
   props: {
-    name: {
+    id: {
       type: String,
       default: "dds"
     }
   },
   data() {
-    return {};
+    return {
+      name:this.id
+    };
   },
   methods: {
     handleToBack() {

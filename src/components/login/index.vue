@@ -5,13 +5,13 @@
         <img src="../../assets/logo.jpg" alt />
       </div>
       <div>
-        <input class="login_text" type="text" placeholder="账户名/手机号/Email" />
+        <input class="login_text" type="text" placeholder="用户名" v-model="userName" />
       </div>
       <div>
-        <input class="login_text" type="password" placeholder="请输入您的密码" />
+        <input class="login_text" type="password" placeholder="请输入您的密码" v-model="password" />
       </div>
       <div class="login_btn">
-        <input type="submit" value="登录" />
+        <input type="submit" value="登录" @click="login" />
       </div>
       <div class="login_link">
         <router-link tag="a" to="/register">立即注册</router-link>
@@ -22,16 +22,68 @@
 </template>
 
 <script>
+import { setStore, getStore } from "@/utils/storage";
+import { Toast } from "mint-ui";
 export default {
-    name:"login"
+  name: "login",
+  data() {
+    return {
+      userName: "",
+      password: ""
+    };
+  },
+  // beforeRouteEnter(to, from, next) {
+  //   next(vm => {
+  //     var aa = getStore('isLogin').val;
+  //     console.log(aa);
+  //     if(isLogin){
+
+  //     }
+  //   });
+  // },
+  mounted() {
+    console.log(getStore("isLogin"));
+    if (getStore("isLogin")) {
+      this.$router.push("/bookcity");
+    }
+  },
+  methods: {
+    login() {
+      if (this.userName && this.password) {
+        this.$axios
+          .post("api2/users/userLogin", {
+            userName: this.userName,
+            password: this.password
+          })
+          .then(res => {
+            var status = res.data.status;
+            if (status == 0) {
+              Toast(res.data.msg);
+              setStore("isLogin", true);
+              this.$router.push("/bookcity");
+            } else {
+              let instance = Toast(res.data.msg);
+              setTimeout(() => {
+                instance.close();
+              }, 1000);
+            }
+          });
+      } else {
+        let instance = Toast("请填写信息！！！");
+        setTimeout(() => {
+          instance.close();
+        }, 1000);
+      }
+    }
+  }
 };
 </script>
 
 <style scoped>
 .content {
-  width:100%;
-  background:url('../../../public/bg.png') no-repeat;
-  background-size:cover;
+  width: 100%;
+  background: url("../../../public/bg.png") no-repeat;
+  background-size: cover;
   height: 100%;
   margin-bottom: 0;
   overflow: hidden;
@@ -41,7 +93,7 @@ export default {
   height: 100%;
   margin: 50px auto 0;
 }
-.login_body > div {
+.login_body div {
   margin-top: 25px;
 }
 .login_body > div:first-child {
@@ -69,13 +121,13 @@ export default {
 }
 /*  placeholder 设置字体颜色 同时主要是要兼容 火狐，IE 和 谷歌浏览器。*/
 input:-moz-placeholder {
-  color: #B3B3B3;
+  color: #b3b3b3;
 }
 input:-ms-input-placeholder {
-  color: #B3B3B3;
+  color: #b3b3b3;
 }
 input::-webkit-input-placeholder {
-  color: #B3B3B3;
+  color: #b3b3b3;
 }
 .login_body .login_btn {
   width: 100%;
@@ -92,11 +144,12 @@ input::-webkit-input-placeholder {
   color: #000;
   font-size: 20px;
   outline: none;
-  letter-spacing:8px;
+  letter-spacing: 8px;
 }
 .login_body .login_link {
   display: flex;
   justify-content: space-between;
+  margin-top: 25px;
 }
 .login_body .login_link a {
   text-decoration: none;

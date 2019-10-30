@@ -136,7 +136,7 @@ export default {
     };
   },
   activated() {
-    console.log(this.$route.fullPath);
+    // console.log(this.$route.fullPath);
   },
   mounted() {
     // new BScorll(this.$refs.bookList,{

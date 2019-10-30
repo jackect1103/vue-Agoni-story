@@ -14,9 +14,7 @@ export default {
                 default: () => import('@/components/storyPage'),
                 storyPage: () => import('@/components/storyPage')
             },
-            props: {
-                storyPage: true
-            },
+            props: true,
         }
     ]
 }

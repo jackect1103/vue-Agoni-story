@@ -7,6 +7,7 @@
       <i class="iconfont icon-search" slot='search'></i>
     </Header>
     <div id="content">
+      <BScroll>
       <CircleTab>
         <!-- banner start-->
         <div class="swiper-container" slot="swiper1" id="banner">
@@ -32,6 +33,7 @@
           <div class="swiper-pagination"></div>
         </div>
       </CircleTab>
+      </BScroll>
     </div>
     <!-- footer satrt-->
     <TabBar />

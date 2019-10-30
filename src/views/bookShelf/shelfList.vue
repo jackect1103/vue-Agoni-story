@@ -1,51 +1,53 @@
 <template>
   <div id="content">
-    <div class="wrapper">
-      <!-- 选择性别 -->
-      <div class="sex">
-        <h2>选择性别</h2>
-        <div class="sexBox">
-          <router-link tag="div" :to="'/bookshelf/category/'+categoryname[0]">
-            <i class="iconfont icon-boy"></i>
-            我是男生
-          </router-link>
-          <router-link tag="div" :to="'/bookshelf/category/'+categoryname[1]">
-            <i class="iconfont icon-huabanfuben"></i>
-            我是女生
-          </router-link>
+    <BScroll> 
+      <div class="wrapper">
+        <!-- 选择性别 -->
+        <div class="sex">
+          <h2>选择性别</h2>
+          <div class="sexBox">
+            <router-link tag="div" :to="'/bookshelf/sex/'+sex[0]">
+              <i class="iconfont icon-boy"></i>
+              我是男生
+            </router-link>
+            <router-link tag="div" :to="'/bookshelf/sex/'+sex[1]">
+              <i class="iconfont icon-huabanfuben"></i>
+              我是女生
+            </router-link>
+          </div>
+        </div>
+        <!-- 选择类别 -->
+        <div class="classification">
+          <h2>选择类别</h2>
+          <ul class="shelfList">
+            <router-link
+              tag="li"
+              :to="'/bookshelf/category/'+item.category_id"
+              v-for="(item,id) in storyCategory"
+              :key="id"
+            >
+              <div class="shelfBox">
+                <div>{{ item.title }}</div>
+                <div>
+                  <img :src="item.img" :alt="item.title" />
+                </div>
+              </div>
+              <p>{{ item.context }}</p>
+            </router-link>
+          </ul>
         </div>
       </div>
-      <!-- 选择类别 -->
-      <div class="classification">
-        <h2>选择类别</h2>
-        <ul class="shelfList">
-          <router-link
-            tag="li"
-            :to="'/bookshelf/category/'+item.category_id"
-            v-for="(item,id) in storyCategory"
-            :key="id"
-          >
-            <div class="shelfBox">
-              <div>{{ item.title }}</div>
-              <div>
-                <img :src="item.img" :alt="item.title" />
-              </div>
-            </div>
-            <p>{{ item.context }}</p>
-          </router-link>
-        </ul>
-      </div>
-    </div>
+    </BScroll>
+    
   </div>
 </template>
 
 <script>
-
 export default {
   name: "shelfList",
   data() {
     return {
-      categoryname: ["boy", "girl"],
+      sex: ["boy", "girl"],
       storyCategory: [
         {
           category_id: "Fantasy",
@@ -114,8 +116,7 @@ export default {
       ]
     };
   },
-  mounted() {
-  }
+  mounted() {}
 };
 </script>
 

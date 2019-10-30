@@ -1,13 +1,25 @@
 <template>
   <div id="main">
+    <!-- header start -->
     <Header :title="title">
-      <router-link tag="i" to="/login" replace  class="iconfont icon-caidaniconwodehui" slot="back">
-      </router-link>
-      <i class="iconfont icon-search" slot='search'></i>
+      <router-link
+        tag="i"
+        to="/personal"
+        replace
+        class="iconfont icon-caidaniconwodehui"
+        slot="back"
+      ></router-link>
+      <i class="iconfont icon-search" slot="search"></i>
     </Header>
+    <!-- header end -->
+    <!-- story list start -->
     <shelfList />
+    <!-- story list end -->
+    <!-- foot start -->
     <TabBar />
-    <router-view></router-view> 
+    <!-- foot end -->
+    <!-- 二级界面 -->
+    <router-view></router-view>
   </div>
 </template>
 

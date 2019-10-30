@@ -16,9 +16,9 @@ export default {
   },
   data() {
     return {
-      msg: this.id + " 获取路由上id  使用 props 将组件和路由解耦"
+      msg: this.id 
     };
-  },
+  },  
   // 获取路由上id  使用 props 将组件和路由解耦
   props: ["id"],
   mounted() {

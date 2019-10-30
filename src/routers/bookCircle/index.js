@@ -1,6 +1,6 @@
 export default {
     path: '/bookcircle',
-    component: () => import('@/views/bookCircle'),
+    component: () => import('@/views/bookCircle'), 
     children: [
         {
             path: 'BookNews',
