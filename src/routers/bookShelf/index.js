@@ -14,7 +14,7 @@ export default {
             // meta: "category"
         }, {
             // 某部小说的详情页
-            path: "storypage/:id",
+            path: "storypage/:_id",
             components: {
                 default: () => import('@/components/storyPage'),
                 storyPage: () => import('@/components/storyPage')

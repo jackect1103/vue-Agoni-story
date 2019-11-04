@@ -18,8 +18,14 @@ export default new Router({
     {
       path: '/search',
       component: () => import('@/components/search'),
-      meta: 'search'
-    }, 
+      meta: 'search',
+      children: [
+        {
+          path: 'detail/:_id',
+          component: () => import('@/components/storyPage'),
+        }
+      ]
+    },
     {
       path: '/personal',
       component: () => import('@/components/personal'),

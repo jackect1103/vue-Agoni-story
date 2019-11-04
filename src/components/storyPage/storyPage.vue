@@ -4,12 +4,12 @@
       <!-- 图片 -->
       <div class="storyPart">
         <div class="img">
-          <img src="https://www.wodeshucheng.com/files/article/image/109/109747/109747s.jpg" alt />
+          <img :src="curStory.storyImg" alt />
         </div>
-        <p class="bookName">最强无敌召唤系统</p>
+        <p class="bookName">{{ curStory.name }}</p>
         <p class="author">
           作者:
-          <b>唯我独秀</b>
+          <b>{{ curStory.author }}</b>
         </p>
         <p class="commnet">
           <span>
@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+import { getStore } from "@/utils/storage";
 import pagination from "@/components/pagination";
 export default {
   name: "bookIntro",
@@ -47,12 +49,24 @@ export default {
       currentPage: 1, //当前页数
       allPage: 10, //总页数
       dataCount: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], //后台获取到的所有数据
-      currentPageContainer: [] //每页显示数据
+      currentPageContainer: [], //每页显示数据
+      curStory: []
     };
+  },
+  computed: {
+    ...mapState(["storys"])
   },
   mounted() {
     this.allPage = Math.floor(this.dataCount.length / this.currentPageCount);
     this.showDate();
+    var story = getStore("storys");
+    var curId = this.$route.params._id;
+    console.log('curId:',curId);
+    story.forEach(item => {
+      if(curId == item._id){
+        this.curStory = item;
+      }
+    });
   },
   methods: {
     setPage(page) {

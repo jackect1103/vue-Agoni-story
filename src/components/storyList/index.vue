@@ -2,7 +2,7 @@
   <div class="bookList slide-enter-active">
     <ul>
       <router-link
-        :to="'/bookshelf/storypage/'+item.id"
+        :to="'/bookshelf/storypage/'+item._id" 
         tag="li"
         v-for="item in storyList"
         :key="item.id"
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "bookList",
   data() {
