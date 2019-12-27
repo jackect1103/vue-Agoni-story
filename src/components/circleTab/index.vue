@@ -5,7 +5,7 @@
         tag="li"
         :to="{path:'/bookcircle/circleDetail/'+item._id}"
         v-for="item in dataList"
-        :key="item.id"
+        :key="item.id" 
       >
         <h2>{{ item.title }}</h2>
         <div class="contentBox">

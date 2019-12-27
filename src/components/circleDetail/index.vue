@@ -1,15 +1,15 @@
 <template>
   <div id="circleContrainer" class="slide-enter-active">
     <!-- 头部start -->
-    <Header title="文章详情" >
-      <i class="iconfont icon-back" @touchstart="handleToBack" slot="back"></i>
+    <Header :title="singleNovel.title">
+      <i class="iconfont icon-back" @touchstart.prevent="handleToBack" slot="back"></i>
     </Header>
     <!-- 头部end -->
     <!-- 内容区域start -->
     <div class="circleText">
       <!-- 文章内容start -->
       <div class="circleTextBox">
-        <h3>李洱：对汉语文学来讲，库切比马尔克斯重要得多</h3>
+        <h3>{{ singleNovel.title}}</h3>
         <div class="circleImg">
           <img
             src="http://bpic.588ku.com/back_pic/17/07/08/81a85c0162a43904577d9c417b3bb89d.jpg"
@@ -48,10 +48,9 @@
                   <span style="float:right">
                     <router-link
                       tag="i"
-                      :to="'/bookcircle/circleDetail/'+number+'/'+name"
+                      :to="'/bookcircle/circleDetail/'"
                       class="iconfont icon-pinglun"
                     ></router-link>
-                    
                   </span>
                   <!-- 点赞 -->
                   <span style="float:right;padding-right:15px;box-sizing:border-box">
@@ -63,7 +62,7 @@
                 <ul class="otherComment">
                   <router-link
                     tag="li"
-                    :to="'/bookcircle/circleDetail/'+number+'/'+name"
+                    :to="'/bookcircle/circleDetail/'"
                     v-for="otherItem in item.otherComment"
                     :key="otherItem.id"
                   >
@@ -93,6 +92,7 @@ export default {
   data() {
     return {
       isNotMore: true,
+      singleNovel: [],
       commentList: [
         {
           user_id: 0,
@@ -165,7 +165,18 @@ export default {
   },
   props: ["id"],
   mounted() {
-    console.log(this.$route.params);
+    this.$axios
+      .post("/api2/users/getArticleBySele", { _id: this.id })
+      .then(res => {
+        var status = res.data.status;
+        if (status == 0) {
+          this.singleNovel = res.data.data.result[0];
+          console.log(this.singleNovel);
+        } else {
+          console.log(res.data.msg);
+        }
+      });
+
   },
   methods: {
     handleMore() {

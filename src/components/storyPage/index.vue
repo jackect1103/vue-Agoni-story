@@ -2,7 +2,7 @@
   <div id="storyPage" class="slide-enter-active">
     <!-- 头部start -->
     <Header :title="name">
-      <i class="iconfont icon-back" @touchstart="handleToBack" slot="back"></i>
+      <i class="iconfont icon-back" @touchstart.prevent="handleToBack" slot="back"></i>
     </Header>
     <bookIntro />
   </div>

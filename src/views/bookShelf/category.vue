@@ -2,7 +2,7 @@
   <div id="category" class="slide-enter-active">
     <!-- header start -->
     <Header :title="title">
-      <i class="iconfont icon-back" @touchstart="handleToBack" slot="back"></i>
+      <i class="iconfont icon-back" @touchstart.prevent="handleToBack" slot="back"></i>
     </Header>
     <StoryList />
   </div>

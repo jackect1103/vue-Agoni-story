@@ -30,6 +30,7 @@
 </template> 
 
 <script>
+import { setStore } from '@/utils/storage.js'
 export default {
   name: "selectList",
   data() {
@@ -47,6 +48,7 @@ export default {
       if (status == 0) {
         this.selectList = res.data.data.articleDatas;
         console.log("status:", res.data);
+        setStore('articles',this.selectList);
       } else {
         console.log(res.data.msg);
       }

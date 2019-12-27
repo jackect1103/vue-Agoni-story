@@ -32,15 +32,17 @@ export default {
       password: ""
     };
   },
-  // beforeRouteEnter(to, from, next) {
-  //   next(vm => {
-  //     var aa = getStore('isLogin').val;
-  //     console.log(aa);
-  //     if(isLogin){
-
-  //     }
-  //   });
-  // },
+  beforeRouteEnter(to, from, next) {
+    var result = getStore("isLogin");
+    if (result) {
+      //如果sessionstorage里存了用户名，则表示已登录
+      next('/personal');
+    } else {
+      next(vm => {
+        next('/login');
+      });
+    }
+  },
   mounted() {
     console.log(getStore("isLogin"));
     if (getStore("isLogin")) {

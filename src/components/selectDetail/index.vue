@@ -1,14 +1,18 @@
 <template>
   <div id="selectDetailContrainer" class="slide-enter-active">
-    <Header :title="msg">
-      <i class="iconfont icon-back" @touchstart="handleToBack" slot="back"></i>
+    <Header :title="singleArticle[0].title">
+      <i class="iconfont icon-back" @touchstart.prevent="handleToBack" slot="back"></i>
     </Header>
-    <div class="commentText">{{ msg }}</div>
+    <h3 class="commentText">{{ singleArticle[0].title }}</h3>
+    <img :src="singleArticle[0].articleyImg" alt="">
+    <p class="comment">{{ singleArticle[0].content }}</p>
+    <p class="comment">{{ singleArticle[0].desc }}</p>
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
+import { getStore } from '@/utils/storage.js'
 export default {
   name: "selectDetail",
   components: {
@@ -16,13 +20,16 @@ export default {
   },
   data() {
     return {
-      msg: this.id 
+      singleArticle:[]
     };
   },  
   // 获取路由上id  使用 props 将组件和路由解耦
   props: ["id"],
   mounted() {
-    console.log(this.$route.params);
+    const allArticles = getStore('articles');
+    this.singleArticle = allArticles.filter(val=>{
+      return val['_id'] == this.id;
+    })
   },
   methods: {
     handleToBack() {
@@ -51,5 +58,14 @@ export default {
   100% {
     transform: translateX(0);
   }
+}
+.commentText{
+  padding: 10px;
+  box-sizing: border-box;
+}
+.comment{
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
 }
 </style>

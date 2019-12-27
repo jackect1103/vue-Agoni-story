@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header>
-      <i class="iconfont icon-back" @touchstart="handleToBack" slot="back"></i>
+      <i class="iconfont icon-back" @touchstart.prevent="handleToBack" slot="back"></i>
     </Header>
     <mt-search v-model="keywords" cancel-text="取消" placeholder="小说名称"></mt-search>
     <ul>
