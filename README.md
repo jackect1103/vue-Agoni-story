@@ -9,13 +9,16 @@ vue2 + vuex + vue-router + axios + localStorage
 
 同时也提供了基于element-ui搭建的[后台管理页面](https://github.com/jackect1103/vue-element-agoni)
 
+# 小说网站效果图
+![agoni小说首页](书城.png)
 
+![agoni小说分类页](书架.png)
 
 =======
 # story
 
 ## Project setup
-```
+```  
 npm install
 ```
 
