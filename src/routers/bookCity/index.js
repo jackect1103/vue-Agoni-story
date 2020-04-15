@@ -1,5 +1,5 @@
 export default {
-    path: '/bookcity',
+    path: '/bookcity', 
     component: () => import('@/views/bookCity'),
     children: [
         {
